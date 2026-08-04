@@ -110,6 +110,7 @@ class ps5000a(PicoScopeBase, Sharedps5000aPs6000a):  # pylint: disable=C0103
                 ctypes.byref(adc_value)
             )
             adc_values.append(adc_value.value)
+        self.min_adc_value, self.max_adc_value = adc_values
         return adc_values[0], adc_values[1]
 
     def get_current_power_source(self) -> str:
